@@ -11,7 +11,21 @@ import { TodoService } from '../../shared/todo.service';
 })
 export class HomePage implements OnInit {
 
-  todos: Todo[] = [];
+  quehaceres: Todo[] = [
+     {
+       description:"estudiar",
+       done:true
+     },
+     {
+       description:"lavar ropa",
+       done:true
+     },
+     {
+       description:"trabajar",
+       done:false
+     }
+  ];
+
 
   buttons = [
     {

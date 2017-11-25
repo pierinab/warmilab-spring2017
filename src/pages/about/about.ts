@@ -8,24 +8,36 @@ import { NavController } from 'ionic-angular';
 
 export class AboutPage {
 
-  nombre: string = "Valeria bautista";
+  nombre: string = "pierina kiram";
   ocupacion: string = "estudiante";
   edad: number = 14;
 
 
   datos: any = {
-    nombre: "Valeria Bautista2",
-    ocupacion: "Estudiante2",
-    edad: 14
+    nombre: "pierina kiram",
+    ocupacion: "Estudiante",
+    edad: 15
   };
-  informacion: any = {
-    origenlbl: "origen3",
-    ciudad:"lima,peru3"
-    };
+
+ informacion: any[]=[
+   {
+     titulo: "origen",
+     dato:"lima,peru",
+     icono:"flag"
+   },
+   {
+     titulo: "e-mail",
+     dato:"pierinita_4782461@hotmail.com",
+     icono:"mail"
+   },
+   {
+     titulo:"telefono",
+     dato:"993368689",
+     icono:"call"
+   }
+ ];
 
 
-  redsocial: string = "e-mail";
-  correos: string = "valeriabarzola96234380@hotmail.com";
 
   constructor(public navCtrl: NavController) {
 
