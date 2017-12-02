@@ -40,47 +40,29 @@ export class HomePage implements OnInit {
     }
   ];
 
-  constructor(
-    public navCtrl: NavController,
-    private todoService: TodoService) {}
+  constructor() {
+
+  }
 
   ngOnInit() {
-    // codigo al iniciar el componente
+
+    this.agregarQuehacer("comer", false);
+    this.agregarQuehacer("estudiar", true);
+    this.agregarQuehacer("armar el cubo de rubik", false);
   }
 
-  addTodo(todo: string) {
-    // codigo para agregar TODO
-  }
-
-  updateTodo(todo: any) {
-    // codigo para actualizar TODO
-  }
-
-  showDone() {
-    // mostrar los TODOs terminados
-  }
-
-  showPending() {
-    // mostrar los TODOs pendientes
-  }
-
-  showAll() {
-    // mostrar todos los TODOs
-  }
-
-  private remapButtons(type: string) {
-    return this.buttons.map(b => {
-      if (b.type === type) {
-        b.class = 'button-large-md';
-      } else {
-        b.class = '';
-      }
-      return b;
+  agregarQuehacer(nuevoquehacer: string, terminado: boolean){
+    if(nuevoquehacer !=="") {
+      this.quehaceres.push({
+        description:nuevoquehacer,
+        done: terminado
+      });
+    }
+    this.quehaceres.push({
+    description: nuevoquehacer,
+    done: terminado
     });
   }
 
-  buttonClass(type: string) {
-    return this.buttons.filter(b => b.type === type)[0].class;
-  }
 
 }

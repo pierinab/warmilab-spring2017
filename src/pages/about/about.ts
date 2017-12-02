@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 @Component({
@@ -6,7 +6,7 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'about.html'
 })
 
-export class AboutPage {
+export class AboutPage implements OnInit {
 
   nombre: string = "pierina kiram";
   ocupacion: string = "estudiante";
@@ -21,7 +21,7 @@ export class AboutPage {
 
  informacion: any[]=[
    {
-     titulo: "origen",
+    titulo: "origen",
      dato:"lima,peru",
      icono:"flag"
    },
@@ -34,6 +34,10 @@ export class AboutPage {
      titulo:"telefono",
      dato:"993368689",
      icono:"call"
+   },{
+     titulo:"hobby",
+     dato:"jugar",
+     icono:"alarm"
    }
  ];
 
@@ -43,4 +47,16 @@ export class AboutPage {
 
   }
 
+ngOnInit(){
+  this.agregardato("cantante","ed sheeran");
+  this.agregardato("colegio", "saco oliveros");
+}
+
+       agregardato(nuevotitulo: string, nuevodato: string){
+        this.informacion.push({
+          titulo: nuevotitulo,
+          dato: nuevodato,
+          icono:"heart"
+        });
+       }
 }
