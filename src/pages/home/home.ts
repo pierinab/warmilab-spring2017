@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Observable }        from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 
 import { Todo } from '../../shared/Todo';
 import { TodoService } from '../../shared/todo.service';
@@ -12,33 +12,46 @@ import { TodoService } from '../../shared/todo.service';
 export class HomePage implements OnInit {
 
   quehaceres: Todo[] = [
-     {
-       description:"estudiar",
-       done:true
-     },
-     {
-       description:"lavar ropa",
-       done:true
-     },
-     {
-       description:"trabajar",
-       done:false
-     }
-  ];
-
-
-  buttons = [
     {
-      type: 'done',
-      class: ''
-    }, {
-      type: 'pending',
-      class: ''
-    }, {
-      type: 'all',
-      class: ''
+      description: "estudiar",
+      done: true
+    },
+    {
+      description: "lavar ropa",
+      done: true
+    },
+    {
+      description: "trabajar",
+      done: false
     }
   ];
+
+  botones: any[] = [
+    {
+      color: "secondary",
+      grande: false,
+      texto: "terminados"
+    },
+
+    {
+      color: "danger",
+      grande: false,
+      texto: "pendientes"
+    },
+
+    {
+      color: "dark",
+      grande: true,
+      texto: "todos"
+    },
+
+  ];
+
+
+
+
+
+
 
   constructor() {
 
@@ -51,17 +64,36 @@ export class HomePage implements OnInit {
     this.agregarQuehacer("armar el cubo de rubik", false);
   }
 
-  agregarQuehacer(nuevoquehacer: string, terminado: boolean){
-    if(nuevoquehacer !=="") {
+  agregarQuehacer(nuevoquehacer: string, terminado: boolean) {
+    if (nuevoquehacer !== "") {
       this.quehaceres.push({
-        description:nuevoquehacer,
+        description: nuevoquehacer,
         done: terminado
       });
     }
     this.quehaceres.push({
-    description: nuevoquehacer,
-    done: terminado
+      description: nuevoquehacer,
+      done: terminado
     });
+  }
+
+  filtrarQuehaceres(texto: string) {
+    if (texto=== "terminados"){
+      this.botones[0].grande = true;
+      this.botones[1].grande = false;
+      this.botones[2].grande = false;
+    } else if (texto==="pendientes") {
+      this.botones[0].grande = false;
+      this.botones[1].grande = true;
+      this.botones[2].grande = false;
+    } else if (texto === "todos"){
+      this.botones[0].grande = false;
+      this.botones[1].grande = false;
+      this.botones[2].grande = true;
+
+
+
+     }
   }
 
 

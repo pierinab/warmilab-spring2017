@@ -12,9 +12,25 @@
       <ion-input type="text" #quehacerinput></ion-input>
     </ion-item>
   </div>
-<div padding>
-<button ion-button block (click)="agregarQuehacer(quehacerinput.value,false)">agregar</button>
-</div>
+  <div padding>
+    <button ion-button block (click)="agregarQuehacer(quehacerinput.value,false)">agregar</button>
+  </div>
+  <div padding>
+   <button ion-button *ngFor= "let boton of botones"
+   color={{boton.color}}
+   large={{boton.grande}}
+   (click)="filtrarquehaceres(boton.texto)"> {{boton.texto}}
+ </button>
+
+
+
+
+
+  </div>
+
+
+
+
   <!-- la lista de TODOs aqui -->
   <div>
     <ion-list>
